@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <memory.h>
 #include <malloc.h>
 #include <stdio.h>
