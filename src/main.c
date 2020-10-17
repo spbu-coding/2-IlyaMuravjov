@@ -58,8 +58,10 @@ int read_reduced_input_array(long long *arr, size_t *arr_length, size_t arr_max_
     long long elm;
     *arr_length = 0;
     do {
-        if (logging_scanf("%lld%c", 2, &elm, &delimiter) != 2)
+        if (scanf("%lld%c", &elm, &delimiter) != 2) {
+            log_error("Unable to read from stdin\n");
             return SCANF_ERROR_CODE;
+        }
         int is_elm_valid = 1;
         if (range->from && elm <= *range->from) {
             if (fprintf(stdout, "%lld ", elm) < 0) return FPRINTF_ERROR_CODE;
